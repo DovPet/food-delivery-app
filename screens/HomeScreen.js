@@ -7,7 +7,7 @@ import {
   ScrollView
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import tw from "tailwind-rn";
+import { useTailwind } from "tailwind-rn";
 import { useNavigation } from "@react-navigation/native";
 import {
   UserIcon,
@@ -46,21 +46,21 @@ const HomeScreen = () => {
         setFeaturedCategories(data);
       });
   }, []);
-
+  const tailwind = useTailwind();
   return (
-    <SafeAreaView style={tw("bg-white pt-5")}>
+    <SafeAreaView style={tailwind("bg-white pt-5")}>
       {/* HEADER */}
       <>
-        <View style={tw("flex-row pb-3 items-center mx-4")}>
+        <View style={tailwind("flex-row pb-3 items-center mx-4")}>
           <Image
             source={{ uri: "https://links.papareact.com/wru" }}
-            style={tw("h-7 w-7 bg-gray-300 rounded-full p-4 mr-2")}
+            style={tailwind("h-7 w-7 bg-gray-300 rounded-full p-4 mr-2")}
           />
-          <View style={tw("flex-1")}>
-            <Text style={tw("font-bold text-gray-400 text-xs")}>
+          <View style={tailwind("flex-1")}>
+            <Text style={tailwind("font-bold text-blue-400 text-xs")}>
               Deliver Now!
             </Text>
-            <Text style={tw("font-bold text-xl")}>
+            <Text style={tailwind("font-bold text-xl")}>
               Current Location
               <ChevronDownIcon size={20} color="#00CCBB" />
             </Text>
@@ -68,9 +68,9 @@ const HomeScreen = () => {
           <UserIcon size={35} color="#00CCBB" />
         </View>
         {/* SEARCH */}
-        <View style={tw("flex-row items-center mx-4 pb-2")}>
-          <View style={tw("flex-row flex-1 p-3 bg-gray-200 mr-2")}>
-            <MagnifyingGlassIcon color="#00CCBB" size={20} style={tw("mr-2")} />
+        <View style={tailwind("flex-row items-center mx-4 pb-2")}>
+          <View style={tailwind("flex-row flex-1 p-3 bg-gray-200 mr-2")}>
+            <MagnifyingGlassIcon color="#00CCBB" size={20} style={tailwind("mr-2")} />
             <TextInput
               placeholder="Restaurants and cuisines"
               keyboardType="default"

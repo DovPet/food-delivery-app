@@ -1,8 +1,9 @@
 import { Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
-import tw from "tailwind-rn";
+import { useTailwind } from "tailwind-rn";
 
 const CategoryCard = ({ imgUrl, title }) => {
+  const tw = useTailwind();
   return (
     <TouchableOpacity style={tw("relative mr-2")}>
       <Image source={{ uri: imgUrl }} style={tw("h-20 w-20 rounded")} />
