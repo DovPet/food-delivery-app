@@ -3,19 +3,29 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
 import { TailwindProvider } from "tailwind-rn";
-import utilities from './tailwind.json';
+import utilities from "./tailwind.json";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import BasketScreen from "./screens/BasketScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <TailwindProvider utilities={utilities}>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Restaurant" component={RestaurantScreen} />
-        </Stack.Navigator>
-      </TailwindProvider>
+      <Provider store={store}>
+        <TailwindProvider utilities={utilities}>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Restaurant" component={RestaurantScreen} />
+            <Stack.Screen
+              name="Basket"
+              component={BasketScreen}
+              options={{ presentation: "modal", headerShown: false }}
+            />
+          </Stack.Navigator>
+        </TailwindProvider>
+      </Provider>
     </NavigationContainer>
   );
 }

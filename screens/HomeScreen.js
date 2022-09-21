@@ -46,21 +46,21 @@ const HomeScreen = () => {
         setFeaturedCategories(data);
       });
   }, []);
-  const tailwind = useTailwind();
+  const tw = useTailwind();
   return (
-    <SafeAreaView style={tailwind("bg-white pt-5")}>
+    <SafeAreaView style={tw("bg-white pt-5")}>
       {/* HEADER */}
       <>
-        <View style={tailwind("flex-row pb-3 items-center mx-4")}>
+        <View style={tw("flex-row pb-3 items-center mx-4")}>
           <Image
             source={{ uri: "https://links.papareact.com/wru" }}
-            style={tailwind("h-7 w-7 bg-gray-300 rounded-full p-4 mr-2")}
+            style={tw("h-7 w-7 bg-gray-300 rounded-full p-4 mr-2")}
           />
-          <View style={tailwind("flex-1")}>
-            <Text style={tailwind("font-bold text-blue-400 text-xs")}>
+          <View style={tw("flex-1")}>
+            <Text style={tw("font-bold text-blue-400 text-xs")}>
               Deliver Now!
             </Text>
-            <Text style={tailwind("font-bold text-xl")}>
+            <Text style={tw("font-bold text-xl")}>
               Current Location
               <ChevronDownIcon size={20} color="#00CCBB" />
             </Text>
@@ -68,9 +68,9 @@ const HomeScreen = () => {
           <UserIcon size={35} color="#00CCBB" />
         </View>
         {/* SEARCH */}
-        <View style={tailwind("flex-row items-center mx-4 pb-2")}>
-          <View style={tailwind("flex-row flex-1 p-3 bg-gray-200 mr-2")}>
-            <MagnifyingGlassIcon color="#00CCBB" size={20} style={tailwind("mr-2")} />
+        <View style={tw("flex-row items-center mx-4 pb-2")}>
+          <View style={tw("flex-row flex-1 p-3 bg-gray-200 mr-2")}>
+            <MagnifyingGlassIcon color="#00CCBB" size={20} style={tw("mr-2")} />
             <TextInput
               placeholder="Restaurants and cuisines"
               keyboardType="default"
@@ -81,17 +81,19 @@ const HomeScreen = () => {
         {/* BODY */}
 
         <ScrollView>
-          <Categories />
-          {featuredCategories?.map((category) => (
-            <FeaturedRow
-              key={category._id}
-              id={category._id}
-              title={category.name}
-              description={category.short_description}
-              featuredCategory="featured"
-              restaurants={category.restaurants}
-            />
-          ))}
+          <View style={tw('pb-36')}>
+            <Categories />
+            {featuredCategories?.map((category) => (
+              <FeaturedRow
+                key={category._id}
+                id={category._id}
+                title={category.name}
+                description={category.short_description}
+                featuredCategory="featured"
+                restaurants={category.restaurants}
+              />
+            ))}
+          </View>
         </ScrollView>
       </>
     </SafeAreaView>
