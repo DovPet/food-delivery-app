@@ -11,7 +11,7 @@ import {
 import { useTailwind } from "tailwind-rn";
 import { ChevronRightIcon } from "react-native-heroicons/outline";
 import DishRow from "../components/DishRow";
-import BasketInfo from "../components/BasketInfo";
+import BasketInfo from "../components/Basket/BasketInfo";
 import { useDispatch } from "react-redux";
 import { setRestaurant } from "../features/restaurantSlice";
 

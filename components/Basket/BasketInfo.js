@@ -6,8 +6,8 @@ import Currency from "react-currency-formatter";
 import {
   selectedBasketItems,
   selectedBasketTotal
-} from "../features/basketSlice";
-import { useTailwind } from "tailwind-rn/dist";
+} from "../../features/basketSlice";
+import { useTailwind } from "tailwind-rn";
 
 const BasketInfo = () => {
   const navigation = useNavigation();
