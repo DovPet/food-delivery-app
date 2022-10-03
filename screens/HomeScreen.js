@@ -4,7 +4,8 @@ import {
   SafeAreaView,
   Image,
   TextInput,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useTailwind } from "tailwind-rn";
@@ -18,6 +19,8 @@ import {
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
 import client from "../sanity";
+import { useSelector } from "react-redux";
+import { getOrderWasPlaced } from "../features/basketSlice";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -47,15 +50,25 @@ const HomeScreen = () => {
       });
   }, []);
   const tw = useTailwind();
+
+  const orderWasPlaced = useSelector(getOrderWasPlaced);
+
   return (
     <SafeAreaView style={tw("bg-white pt-5")}>
       {/* HEADER */}
       <>
         <View style={tw("flex-row pb-3 items-center mx-4")}>
-          <Image
-            source={{ uri: "https://links.papareact.com/wru" }}
-            style={tw("h-7 w-7 bg-gray-300 rounded-full p-4 mr-2")}
-          />
+          <TouchableOpacity
+            onPress={() =>
+              orderWasPlaced && navigation.navigate("Delivery")
+            }
+          >
+            <Image
+              source={{ uri: "https://links.papareact.com/wru" }}
+              style={tw("h-7 w-7 bg-gray-300 rounded-full p-4 mr-2")}
+            />
+          </TouchableOpacity>
+
           <View style={tw("flex-1")}>
             <Text style={tw("font-bold text-blue-400 text-xs")}>
               Deliver Now!
@@ -81,7 +94,7 @@ const HomeScreen = () => {
         {/* BODY */}
 
         <ScrollView>
-          <View style={tw('pb-36')}>
+          <View style={tw("pb-36")}>
             <Categories />
             {featuredCategories?.map((category) => (
               <FeaturedRow

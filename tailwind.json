@@ -49,6 +49,11 @@
 			"zIndex": 50
 		}
 	},
+	"z-0": {
+		"style": {
+			"zIndex": 0
+		}
+	},
 	"mx-4": {
 		"style": {
 			"marginLeft": 16,
@@ -95,6 +100,12 @@
 		"style": {
 			"marginTop": 8,
 			"marginBottom": 8
+		}
+	},
+	"my-10": {
+		"style": {
+			"marginTop": 40,
+			"marginBottom": 40
 		}
 	},
 	"mr-2": {
@@ -157,6 +168,26 @@
 			"marginBottom": 16
 		}
 	},
+	"mt-3": {
+		"style": {
+			"marginTop": 12
+		}
+	},
+	"-mt-10": {
+		"style": {
+			"marginTop": -40
+		}
+	},
+	"ml-5": {
+		"style": {
+			"marginLeft": 20
+		}
+	},
+	"mr-5": {
+		"style": {
+			"marginRight": 20
+		}
+	},
 	"h-7": {
 		"style": {
 			"height": 28
@@ -180,6 +211,26 @@
 	"h-12": {
 		"style": {
 			"height": 48
+		}
+	},
+	"h-96": {
+		"style": {
+			"height": 384
+		}
+	},
+	"h-80": {
+		"style": {
+			"height": 320
+		}
+	},
+	"h-28": {
+		"style": {
+			"height": 112
+		}
+	},
+	"h-10": {
+		"style": {
+			"height": 40
 		}
 	},
 	"w-7": {
@@ -207,6 +258,21 @@
 			"width": 48
 		}
 	},
+	"w-96": {
+		"style": {
+			"width": 384
+		}
+	},
+	"w-80": {
+		"style": {
+			"width": 320
+		}
+	},
+	"w-10": {
+		"style": {
+			"width": 40
+		}
+	},
 	"flex-1": {
 		"style": {
 			"flexGrow": 1,
@@ -222,6 +288,11 @@
 	"items-center": {
 		"style": {
 			"alignItems": "center"
+		}
+	},
+	"justify-center": {
+		"style": {
+			"justifyContent": "center"
 		}
 	},
 	"justify-between": {
@@ -259,6 +330,14 @@
 			"borderTopRightRadius": 8,
 			"borderBottomRightRadius": 8,
 			"borderBottomLeftRadius": 8
+		}
+	},
+	"rounded-md": {
+		"style": {
+			"borderTopLeftRadius": 6,
+			"borderTopRightRadius": 6,
+			"borderBottomRightRadius": 6,
+			"borderBottomLeftRadius": 6
 		}
 	},
 	"border": {
@@ -396,6 +475,14 @@
 			"paddingLeft": 20
 		}
 	},
+	"p-6": {
+		"style": {
+			"paddingTop": 24,
+			"paddingRight": 24,
+			"paddingBottom": 24,
+			"paddingLeft": 24
+		}
+	},
 	"px-4": {
 		"style": {
 			"paddingLeft": 16,
@@ -523,6 +610,12 @@
 			"lineHeight": 28
 		}
 	},
+	"text-4xl": {
+		"style": {
+			"fontSize": 36,
+			"lineHeight": 40
+		}
+	},
 	"font-bold": {
 		"style": {
 			"fontWeight": "700"
@@ -531,6 +624,11 @@
 	"font-extrabold": {
 		"style": {
 			"fontWeight": "800"
+		}
+	},
+	"font-light": {
+		"style": {
+			"fontWeight": "300"
 		}
 	},
 	"text-blue-400": {

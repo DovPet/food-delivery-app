@@ -1,13 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: []
+  items: [],
+  orderWasPlaced: false
 };
 
 export const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
+    setOrderWasPlaced: (state) => {
+      state.orderWasPlaced = true;
+    },
     addToBasket: (state, action) => {
       state.items = [...state.items, action.payload];
     },
@@ -27,14 +31,19 @@ export const basketSlice = createSlice({
       }
 
       state.items = newBasket;
+    },
+    emptyBasket: (state) => {
+      state.items = [];
     }
   }
 });
 
 // Action creators are generated for each case reducer function
-export const { addToBasket, removeFromBasket } = basketSlice.actions;
+export const { addToBasket, removeFromBasket, setOrderWasPlaced, emptyBasket } =
+  basketSlice.actions;
 
 export const selectedBasketItems = (state) => state.basket.items;
+export const getOrderWasPlaced = (state) => state.basket.orderWasPlaced;
 export const selectedBasketItemsById = (state, id) =>
   state.basket.items.filter((item) => item.id === id);
 export const selectedBasketTotal = (state) =>

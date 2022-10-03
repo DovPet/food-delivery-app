@@ -4,11 +4,13 @@ import Currency from "react-currency-formatter";
 import { useTailwind } from "tailwind-rn";
 import { useSelector } from "react-redux";
 import { selectedBasketTotal } from "../../features/basketSlice";
+import { useNavigation } from "@react-navigation/native";
 
 const BasketTotal = () => {
   const DELIVERY_FEE = 2.99;
   const tw = useTailwind();
   const basketSubtotal = useSelector(selectedBasketTotal);
+  const navigation = useNavigation();
   return (
     <View style={tw("p-5 bg-white mt-5")}>
       <View style={tw("flex-row justify-between mb-4")}>
@@ -26,13 +28,16 @@ const BasketTotal = () => {
       </View>
 
       <View style={tw("flex-row justify-between mb-4")}>
-        <Text style={tw("")}>Order total</Text>
+        <Text>Order total</Text>
         <Text style={tw("font-extrabold")}>
           <Currency quantity={basketSubtotal + DELIVERY_FEE} currency="EUR" />
         </Text>
       </View>
 
-      <TouchableOpacity style={tw("rounded-lg bg-[#00CCBB] p-4")}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("PreparingOrder")}
+        style={tw("rounded-lg bg-[#00CCBB] p-4")}
+      >
         <Text style={tw("text-center text-white text-lg font-bold")}>
           Place Order
         </Text>
